@@ -1,6 +1,6 @@
 {
   "name": "@danzus/plugin-lint",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Linter for Claude Cowork plugin folders. Use when validating SKILL.md frontmatter, plugin.json structure, or trigger-phrase collisions. Do NOT use for general TypeScript linting or non-Claude plugin formats.",
   "bin": {
     "plugin-lint": "./dist/cli.js"
@@ -18,7 +18,14 @@
   },
   "license": "MIT",
   "repository": "github:danzus/plugin-lint",
-  "keywords": ["claude", "cowork", "plugin", "linter", "skill", "anthropic"],
+  "keywords": [
+    "claude",
+    "cowork",
+    "plugin",
+    "linter",
+    "skill",
+    "anthropic"
+  ],
   "files": [
     "dist",
     "README.md",
