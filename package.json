@@ -1,0 +1,10 @@
+{
+  "name": "@danzus/plugin-lint",
+  "version": "0.0.1",
+  "description": "Linter for Claude Cowork plugin folders",
+  "type": "module",
+  "license": "MIT",
+  "repository": "github:danzus/plugin-lint",
+  "keywords": ["claude", "cowork", "plugin", "linter", "skill", "anthropic"],
+  "files": ["README.md"]
+}
