@@ -1,0 +1,30 @@
+# Real-world direct skill-directory runs
+## premium-ui-design
+$ npx --no-install plugin-lint "$PREMIUM"
+
+plugin-lint v0.1.0
+Path: /Users/danzusholdingsllc/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/a6f103a1-168d-40b3-acbf-060194f1c04a/83e99bf1-caa4-48d1-9c31-4f3d6050b212/skills/premium-ui-design
+
+Plugin structure
+  ✖ error  Missing .claude-plugin/plugin.json /Users/danzusholdingsllc/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/a6f103a1-168d-40b3-acbf-060194f1c04a/83e99bf1-caa4-48d1-9c31-4f3d6050b212/skills/premium-ui-design/.claude-plugin/plugin.json
+
+──────────────────────────────────────────────────
+
+✖ 1 error
+
+exit=2
+
+## content-growth
+$ npx --no-install plugin-lint "$CONTENT"
+
+plugin-lint v0.1.0
+Path: /Users/danzusholdingsllc/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/a6f103a1-168d-40b3-acbf-060194f1c04a/83e99bf1-caa4-48d1-9c31-4f3d6050b212/skills/content-growth
+
+Plugin structure
+  ✖ error  Missing .claude-plugin/plugin.json /Users/danzusholdingsllc/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/a6f103a1-168d-40b3-acbf-060194f1c04a/83e99bf1-caa4-48d1-9c31-4f3d6050b212/skills/content-growth/.claude-plugin/plugin.json
+
+──────────────────────────────────────────────────
+
+✖ 1 error
+
+exit=2

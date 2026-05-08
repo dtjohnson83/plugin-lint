@@ -24,6 +24,7 @@ const GENERIC_WORDS = [
 
 const TRIGGER_PATTERNS = [
   /use when (the )?user (says?|asks?|requests?|needs?|wants?)/gi,
+  /use when (building|creating|drafting|writing|generating|reviewing|analyzing|working on|designing|making)/gi,
   /use this (skill |tool )?when/gi,
   /trigger(ed)? when/gi,
   /user says?[:\s]+['"]/gi,
@@ -55,6 +56,20 @@ function countTriggerPhrases(description: string): number {
   const quotedPhrases = description.match(/['"][^'"]{5,}['"]/g);
   if (quotedPhrases && count > 0) {
     count = Math.max(count, quotedPhrases.length);
+  }
+
+  // Count concrete comma-separated activation lists, e.g.
+  // "Use when building social posts, video scripts, landing pages, or ASO materials."
+  const useWhenClauses = description.match(/use when [^.]+/gi) ?? [];
+  for (const clause of useWhenClauses) {
+    const normalized = clause.replace(/\bor\b/gi, ',');
+    const items = normalized
+      .split(',')
+      .map((item) => item.trim())
+      .filter((item) => /\b\w+\b/.test(item));
+    if (items.length >= 2) {
+      count = Math.max(count, Math.min(items.length, 7));
+    }
   }
 
   // Count list items that look like trigger phrases

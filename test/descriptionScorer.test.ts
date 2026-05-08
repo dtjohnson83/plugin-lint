@@ -45,6 +45,14 @@ describe('scoreDescription', () => {
     expect(result.triggerPhraseScore).toBe(30);
   });
 
+  it('counts concrete use-when activation lists as trigger phrases', () => {
+    const result = scoreDescription(
+      'Create viral content and growth assets for mobile app marketing. Use when building social media posts, video scripts, landing pages, lead magnets, influencer outreach, Reddit/TikTok content, email sequences, or ASO materials. Specialized for B2C apps targeting niche communities.',
+    );
+    expect(result.triggerPhraseScore).toBe(30);
+    expect(result.grade).toBe('B');
+  });
+
   it('gives full negative boundary score for explicit DO NOT clause', () => {
     const result = scoreDescription(GOOD_DESCRIPTION);
     expect(result.negativeBoundaryScore).toBe(25);
