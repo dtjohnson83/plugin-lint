@@ -1,0 +1,6 @@
+{
+  "name": "broken-json",
+  "description": "This JSON is intentionally malformed",
+  "version": "1.0.0"
+  "author": "Missing comma above makes this invalid"
+}

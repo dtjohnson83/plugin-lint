@@ -1,0 +1,6 @@
+{
+  "name": "good-plugin",
+  "description": "A well-formed example plugin for testing plugin-lint",
+  "version": "1.0.0",
+  "author": "DANZUS Holdings LLC"
+}

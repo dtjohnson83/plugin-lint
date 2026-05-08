@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run tests
+        run: npm test
+
+      - name: Smoke test — good-plugin (expect exit 0)
+        run: node dist/cli.js test/fixtures/good-plugin --format json
+        continue-on-error: false
+
+      - name: Smoke test — vague-descriptions (expect exit 2)
+        run: |
+          node dist/cli.js test/fixtures/vague-descriptions --format json; \
+          [ $? -eq 2 ] && echo "Correct exit code 2" || (echo "Expected exit code 2" && exit 1)
+
+      - name: Smoke test — colliding-triggers (expect exit 1 or 2)
+        run: |
+          node dist/cli.js test/fixtures/colliding-triggers --format json; \
+          code=$?; \
+          [ $code -ge 1 ] && echo "Correct — collision detected" || (echo "Expected non-zero exit code" && exit 1)
+
+      - name: Smoke test — broken-json (expect exit 2)
+        run: |
+          node dist/cli.js test/fixtures/broken-json --format json; \
+          [ $? -eq 2 ] && echo "Correct exit code 2" || (echo "Expected exit code 2" && exit 1)
