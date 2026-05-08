@@ -1,7 +1,7 @@
 {
   "name": "@danzus/plugin-lint",
   "version": "0.1.0",
-  "description": "Linter for Claude Cowork plugin folders",
+  "description": "Linter for Claude Cowork plugin folders. Use when validating SKILL.md frontmatter, plugin.json structure, or trigger-phrase collisions. Do NOT use for general TypeScript linting or non-Claude plugin formats.",
   "bin": {
     "plugin-lint": "./dist/cli.js"
   },
